@@ -257,9 +257,15 @@ const PelajaranPage = (props) => {
 
     const handleSubmitKomentar = async (e) => {
         console.log(komentarValues)
+
+        const res = await axios.get('http://localhost:8000/api/repo-list-komentar', {
+          headers: { 
+            'Content-Type': 'application/json'
+        }})
+        console.log(res.data)
         if(komentarValues.trim().length > 0){
             const newKomentarData = {
-                id: dataListKomentar.length + 1,
+                id: res.data.length === 0 ? res.data.length : res.data[res.data.length-1].id + 1,
                 username: JSON.parse(localStorage.getItem("token")).data.Nama,
                 nim: JSON.parse(localStorage.getItem("token")).data.NIM,
                 komentar: komentarValues,
@@ -342,7 +348,11 @@ const PelajaranPage = (props) => {
                     <Typography>Dosen Koordinator</Typography>
                     <Typography>{koordinator.Nip} - {koordinator.NamaGelar}</Typography>
                     
-                    <Typography>Daftar Mahasiswa yang tertarik mengikuti mata kuliah elektif ini</Typography>
+                    {props.location.state.type === "Elektif" ? 
+                      (<Typography>Daftar Mahasiswa yang tertarik mengikuti mata kuliah elektif ini</Typography>)
+                      : 
+                      ""
+                    }
                     {props.location.state.type === "Elektif" ? (
                     <div className={classes.tableElektif}>
                         <TableElektif dataTertarik={dataTertarik} idMataKuliah={parseInt(props.match.params.id)} />

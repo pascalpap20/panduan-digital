@@ -15,6 +15,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { IconButton } from '@material-ui/core';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,6 +90,26 @@ export default function AlignItemsList({dataKomentar, idMataKuliah}) {
 
     }
     
+    const handleDelete = (item) => {
+      console.log(item)
+
+      var config = {
+        method: 'delete',
+        url: `http://127.0.0.1:8000/api/repo-delete-komentar/${item.id}`,
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+      };
+      
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
 
     return (
         <List className={classes.root}>
@@ -142,6 +163,10 @@ export default function AlignItemsList({dataKomentar, idMataKuliah}) {
                     </Button>
                   </DialogActions>
                 </Dialog>
+                
+                <IconButton onClick={() => handleDelete(item)} >
+                    <ClearIcon fontSize="small"/>
+                </IconButton>
               </React.Fragment>
                 
                 ) : "" }
