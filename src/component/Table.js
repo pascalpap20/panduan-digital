@@ -20,6 +20,9 @@ const useStyles = makeStyles({
   }
 });
 
+const proxy = "https://corsanywhere.herokuapp.com/"
+const baseURL = "http://intense-temple-76166.herokuapp.com/";
+
 export default function BasicTable({ dataToShow, type, kode }) {
     const classes = useStyles();
     
@@ -50,7 +53,7 @@ export default function BasicTable({ dataToShow, type, kode }) {
     const getData = async () => {
         var config = {
             method: 'get',
-            url: 'http://localhost:8000/api/list-mk-elektif',
+            url: `${proxy}${baseURL}api/test-repo-elektif`,
             headers: { 
               'Content-Type': 'application/json'
             }

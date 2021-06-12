@@ -11,8 +11,10 @@ import PaperShow from '../component/PaperShow';
 import PaperShowElektif from '../component/PaperShowElektif';
 import axios from 'axios';
 // import { Typography } from '@material-ui/core';
-// import { useJwt } from "react-jwt";
 
+
+const proxy = "https://corsanywhere.herokuapp.com/"
+const baseURL = "http://intense-temple-76166.herokuapp.com/";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,9 +63,10 @@ const MainView = (props) => {
     const getData = () => {
         var config = {
             method: 'get',
-            url: 'http://127.0.0.1:8000/api/test-repo-elektif/',
+            url: `${proxy}${baseURL}api/test-repo-elektif/`,
             headers: { 
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+            //   'Access-Control-Allow-Origin': '*'
             },
           };
           
@@ -81,7 +84,7 @@ const MainView = (props) => {
     const getTertarikElektif = () => {
         var config = {
             method: 'get',
-            url: 'http://127.0.0.1:8000/api/repo-list-tertarik/',
+            url: `${proxy}${baseURL}api/repo-list-tertarik/`,
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -167,7 +170,7 @@ const MainView = (props) => {
                     <PaperDashboard title="Semester saat ini" counter={semester}/>
                 </div>
                 <div className={classes.show}>
-                    <PaperShow title="Daftar mata kuliah elektif tersedia semester" data={dataElektif}/>
+                    <PaperShow title="Daftar mata kuliah elektif tersedia" data={dataElektif}/>
                     <PaperShowElektif title="Mata Kuliah elektif yang tertarik diikuti" dataElektif={dataElektif} dataTertarik={elektifTertarikDiikuti} />
                 </div>
                 {/* <Typography>{usernameFromLogin}</Typography> */}

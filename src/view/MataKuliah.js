@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Typography } from '@material-ui/core';
+// import { Typography } from '@material-ui/core';
 import Dropdown from '../component/Dropdown';
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +58,7 @@ const MataKuliah = (props) => {
             </div>
             
             <div className="matakuliah-view">
-                    <Typography>ini buat Breadcrumb</Typography>
+                    {/* <Typography>ini buat Breadcrumb</Typography> */}
                     {/* <Typography>{profile.data.Nama}</Typography> */}
                     <Dropdown />
             

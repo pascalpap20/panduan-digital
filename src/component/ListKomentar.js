@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const proxy = "https://corsanywhere.herokuapp.com/"
+const baseURL = "http://intense-temple-76166.herokuapp.com/";
+
 export default function AlignItemsList({dataKomentar, idMataKuliah}) {
     const classes = useStyles();
 
@@ -72,7 +75,7 @@ export default function AlignItemsList({dataKomentar, idMataKuliah}) {
       console.log(editKomentar)
       var config = {
         method: 'put',
-        url: 'http://127.0.0.1:8000/api/repo-edit-komentar',
+        url: `${proxy}${baseURL}api/repo-edit-komentar`,
         headers: { 
           'Content-Type': 'application/json'
         },
@@ -95,7 +98,7 @@ export default function AlignItemsList({dataKomentar, idMataKuliah}) {
 
       var config = {
         method: 'delete',
-        url: `http://127.0.0.1:8000/api/repo-delete-komentar/${item.id}`,
+        url: `${proxy}${baseURL}api/repo-delete-komentar/${item.id}`,
         headers: { 
           'Content-Type': 'application/json'
         },

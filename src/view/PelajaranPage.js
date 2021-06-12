@@ -61,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
       },
 }));
 
+const proxy = "https://corsanywhere.herokuapp.com/"
+const baseURL = "http://intense-temple-76166.herokuapp.com/";
+
 const PelajaranPage = (props) => {
     const classes = useStyles();
 
@@ -108,7 +111,7 @@ const PelajaranPage = (props) => {
 
         var config = {
             method: 'get',
-            url: 'http://localhost:8000/api/repo-list-tertarik',
+            url: `${proxy}${baseURL}api/repo-list-tertarik`,
             headers: { 
               'Content-Type': 'application/json'
             }
@@ -131,7 +134,7 @@ const PelajaranPage = (props) => {
       
       var config = {
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/repo-list-komentar/',
+        url: `${proxy}${baseURL}api/repo-list-komentar/`,
         headers: { 
           'Content-Type': 'application/json'
         }
@@ -154,7 +157,7 @@ const PelajaranPage = (props) => {
         console.log(id)
         var config = {
             method: 'get',
-            url: 'http://localhost:8000/api/repo-list-tertarik',
+            url: `${proxy}${baseURL}api/repo-list-tertarik`,
             headers: { 
               'Content-Type': 'application/json'
             }
@@ -185,7 +188,7 @@ const PelajaranPage = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         // alert("Asik")
-        const res = await axios.get('http://localhost:8000/api/repo-list-tertarik', {
+        const res = await axios.get(`${proxy}${baseURL}api/repo-list-tertarik`, {
         headers: { 
           'Content-Type': 'application/json'
         }})
@@ -204,7 +207,7 @@ const PelajaranPage = (props) => {
 
             var config = {
                 method: 'post',
-                url: 'http://localhost:8000/api/repo-add-tertarik',
+                url: `${proxy}${baseURL}api/repo-add-tertarik`,
                 headers: { 
                   'Content-Type': 'application/json'
                 },
@@ -232,7 +235,7 @@ const PelajaranPage = (props) => {
 
                 var configDel = {
                     method: 'delete',
-                    url: `http://localhost:8000/api/repo-delete-tertarik/${checkUser.id}`,
+                    url: `${proxy}${baseURL}api/repo-delete-tertarik/${checkUser.id}`,
                     headers: { 
                         'Content-Type': 'application/json'
                     }
@@ -258,7 +261,7 @@ const PelajaranPage = (props) => {
     const handleSubmitKomentar = async (e) => {
         console.log(komentarValues)
 
-        const res = await axios.get('http://localhost:8000/api/repo-list-komentar', {
+        const res = await axios.get(`${proxy}${baseURL}api/repo-list-komentar`, {
           headers: { 
             'Content-Type': 'application/json'
         }})
@@ -275,7 +278,7 @@ const PelajaranPage = (props) => {
 
             var config = {
               method: 'post',
-              url: 'http://127.0.0.1:8000/api/repo-add-komentar',
+              url: `${proxy}${baseURL}api/repo-add-komentar`,
               headers: { 
                 'Content-Type': 'application/json'
               },
@@ -287,6 +290,7 @@ const PelajaranPage = (props) => {
               console.log(JSON.stringify(response.data));
               setDataListKomentar([...dataListKomentar, newKomentarData])
               setKomentarValues("")
+              window.location.reload()
             })
             .catch(function (error) {
               console.log(error);

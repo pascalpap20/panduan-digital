@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 70
   },
   paper: {
     display: 'flex',
@@ -21,7 +21,11 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(40),
         height: theme.spacing(40),
     },
-},
+  }, 
+  counter: {
+    fontSize: 72
+  }
+  
 }));
 
 export default function SimplePaper({ title, counter }) {
@@ -29,8 +33,8 @@ export default function SimplePaper({ title, counter }) {
 
   return (
       <Paper elevation={3} className={classes.root}>
-        <Typography className={classes.text}>{title}</Typography>
-        <Typography>{counter}</Typography>
+        <Typography className={classes.text} variant='body2'>{title}</Typography>
+        <Typography className={classes.counter}>{counter}</Typography>
       </Paper>
   );
 }
