@@ -48,17 +48,45 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         marginTop: 10,
         marginBottom: 10
-      },
-      margin: {
+    },
+    margin: {
         margin: theme.spacing(1),
-      },
-      textField: {
+    },
+    textField: {
         width: '100%',
-      },
-      paperKomentar: {
+    },
+    paperKomentar: {
         display: 'flex',
         width: "70%"
-      },
+    },
+
+    buttonDashboard: {
+        marginTop: 13,
+        backgroundColor: '#FBE0C4',
+        marginLeft: 20,
+        borderRadius: 10,
+        width: 150,
+        color: 'black',
+        height: 40
+    },  
+
+    listStyle: {
+        backgroundColor: '#0061A8'
+    },
+
+    buttonMatkul: {
+        backgroundColor: '#AE9B86',
+        marginLeft: 20,
+        borderRadius: 10,
+        width: 150,
+        color: 'black',
+        height: 40
+        
+    },
+    spaceButton: {
+        backgroundColor: '#0061A8',
+        height: 15
+    }
 }));
 
 const proxy = "https://corsanywhere.herokuapp.com/"
@@ -304,25 +332,25 @@ const PelajaranPage = (props) => {
             <Header />
             <div className="side-nav">
                 <div className={classes.root}>
-                    <List component="nav" aria-label="secondary mailbox folders">
+                    <List className={classes.listStyle} component="nav" aria-label="secondary mailbox folders">
                         <Link to={{
                             pathname: "/dashboard"
                         }}  
                             style={link}>
 
-                            <ListItem button>
-                                    <ListItemText primary="Dashboard" />
+                            <ListItem className={classes.buttonDashboard} button>
+                                    <ListItemText className="tengah" primary="Dashboard" />
                             </ListItem>
                         </Link>
-                        
+                        <div className={classes.spaceButton}></div>
                         <Link to={{
                             pathname: "/matakuliah"
                         }} 
                             
                             style={link}>
 
-                            <ListItem button>
-                                    <ListItemText primary="Mata Kuliah" />
+                            <ListItem className={classes.buttonMatkul} button>
+                                    <ListItemText className="tengah" primary="Mata Kuliah" />
                             </ListItem>
                         </Link>
                     </List>

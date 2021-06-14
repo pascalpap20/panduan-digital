@@ -42,6 +42,34 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(61),
             height: theme.spacing(40),
         },
+    },
+
+    buttonDashboard: {
+        marginTop: 13,
+        backgroundColor: '#AE9B86',
+        marginLeft: 20,
+        borderRadius: 10,
+        width: 150,
+        color: 'black',
+        height: 40
+    },  
+
+    listStyle: {
+        backgroundColor: '#0061A8'
+    },
+
+    buttonMatkul: {
+        backgroundColor: '#FBE0C4',
+        marginLeft: 20,
+        borderRadius: 10,
+        width: 150,
+        color: 'black',
+        height: 40
+        
+    },
+    spaceButton: {
+        backgroundColor: '#0061A8',
+        height: 15
     }
 
 }));
@@ -136,18 +164,19 @@ const MainView = (props) => {
             <Header />
             <div className="side-nav">
                 <div className={classes.root}>
-                    <List component="nav" aria-label="secondary mailbox folders">
+                    
+                    <List className={classes.listStyle} component="nav" aria-label="secondary mailbox folders">
                         <Link to={{
                             pathname: "/dashboard",
                             // state: {username: usernameFromLogin}
                         }}  
                             style={link}>
 
-                            <ListItem button>
-                                    <ListItemText primary="Dashboard" />
+                            <ListItem className={classes.buttonDashboard} button>
+                                    <ListItemText className="tengah" primary="Dashboard" />
                             </ListItem>
                         </Link>
-                        
+                        <ListItem className={classes.spaceButton}></ListItem>
                         <Link to={{
                             pathname: "/matakuliah",
                             // state: {username: usernameFromLogin}
@@ -155,9 +184,10 @@ const MainView = (props) => {
                             
                             style={link}>
                             
-                            <ListItem button>
-                                    <ListItemText primary="Mata Kuliah" />
+                            <ListItem className={classes.buttonMatkul} button>
+                                    <ListItemText className="tengah" primary="Mata Kuliah" />
                             </ListItem>
+                            
                         </Link>
                     </List>
                 </div>

@@ -16,6 +16,34 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
       marginTop:20
     },
+    
+    buttonDashboard: {
+        marginTop: 13,
+        backgroundColor: '#FBE0C4',
+        marginLeft: 20,
+        borderRadius: 10,
+        width: 150,
+        color: 'black',
+        height: 40
+    },  
+
+    listStyle: {
+        backgroundColor: '#0061A8'
+    },
+
+    buttonMatkul: {
+        backgroundColor: '#AE9B86',
+        marginLeft: 20,
+        borderRadius: 10,
+        width: 150,
+        color: 'black',
+        height: 40
+        
+    },
+    spaceButton: {
+        backgroundColor: '#0061A8',
+        height: 15
+    }
 }));
 
 const MataKuliah = (props) => {
@@ -26,22 +54,24 @@ const MataKuliah = (props) => {
     // console.log(profile)
 
     return(
+        
         <React.Fragment>
+            
             <Header />
             <div className="side-nav">
                 <div className={classes.root}>
-                    <List component="nav" aria-label="secondary mailbox folders">
+                    <List className={classes.listStyle} component="nav" aria-label="secondary mailbox folders">
                         <Link to={{
                             pathname: "/dashboard",
                             // state: {username: usernameFromDashboard}
                         }}  
                             style={link}>
 
-                            <ListItem button>
-                                    <ListItemText primary="Dashboard" />
+                            <ListItem className={classes.buttonDashboard} button>
+                                    <ListItemText className="tengah" primary="Dashboard" />
                             </ListItem>
                         </Link>
-                        
+                        <div className={classes.spaceButton}></div>
                         <Link to={{
                             pathname: "/matakuliah",
                             // state: {username: usernameFromDashboard}
@@ -49,8 +79,8 @@ const MataKuliah = (props) => {
                             
                             style={link}>
 
-                            <ListItem button>
-                                    <ListItemText primary="Mata Kuliah" />
+                            <ListItem className={classes.buttonMatkul} button>
+                                    <ListItemText className="tengah" primary="Mata Kuliah" />
                             </ListItem>
                         </Link>
                     </List>

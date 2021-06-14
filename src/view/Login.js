@@ -13,6 +13,7 @@ import { Button, Paper } from '@material-ui/core';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../context/auth'
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +41,22 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection:"column",
     flexWrap: 'wrap',
+    color: '8AB6D6'
   },
+  judul: {
+    
+    marginTop: 60,
+    fontSize: 50,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    color: 'white'
+  },
+
+  login: {
+    marginLeft: 165,
+    backgroundColor: 'blue',
+    color: 'white'
+  }
 
 }));
 
@@ -126,6 +142,8 @@ export default function Login() {
 
   return (
     <div className={classes.root}>
+      <div>
+      <Typography className={classes.judul}>PANDUAN DIGITAL IPB</Typography>
       <div className={classes.root} noValidate autoComplete="off">
             <Paper className={classes.paper}>
                 <TextField value={username} onChange={e => setUsername(e.target.value)} id="standard-basic" label="Username" className={clsx(classes.margin, classes.textField)} />
@@ -150,7 +168,10 @@ export default function Login() {
                         />
                 </FormControl>
                 <Button onClick={handleSubmit}>Login</Button>
+                
             </Paper>
+          
+      </div>
       </div>
     </div>
   );
