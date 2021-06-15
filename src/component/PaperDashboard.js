@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     marginTop: 10,
-    marginBottom: 70
+    marginBottom: 70,
+    fontWeight: 'bold'
   },
   paper: {
     display: 'flex',

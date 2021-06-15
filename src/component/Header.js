@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import '../view/MainView.css'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -43,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
   header: {
     height: 90,
     justifyContent: "center"
-  }
+  },
+  
 }));
 
 export default function ElevateAppBar(props) {
@@ -57,10 +59,10 @@ export default function ElevateAppBar(props) {
       <ElevationScroll {...props}>
         <AppBar className={classes.header}>
           <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              Panduan Digital IPB
-            </Typography>
-            <Button color="inherit" onClick={logout}>Logout</Button>
+              <Typography variant="h6" className={classes.title}>
+                Panduan Digital IPB
+              </Typography>
+            <Button color="inherit" onClick={logout}>Logout</Button>       
           </Toolbar>
         </AppBar>
       </ElevationScroll>

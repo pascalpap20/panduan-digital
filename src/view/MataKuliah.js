@@ -43,7 +43,14 @@ const useStyles = makeStyles((theme) => ({
     spaceButton: {
         backgroundColor: '#0061A8',
         height: 15
-    }
+    },
+    bgColor: {
+        backgroundColor: '#2978B5'
+    },
+    fillColor: {
+        backgroundColor: '#2978B5',
+        height: 270
+    },
 }));
 
 const MataKuliah = (props) => {
@@ -54,7 +61,7 @@ const MataKuliah = (props) => {
     // console.log(profile)
 
     return(
-        
+        <div className={classes.bgColor}>
         <React.Fragment>
             
             <Header />
@@ -93,8 +100,9 @@ const MataKuliah = (props) => {
                     <Dropdown />
             
             </div>
-            
+            <div className={classes.fillColor}></div>
         </React.Fragment>
+        </div>
     );
 }
 

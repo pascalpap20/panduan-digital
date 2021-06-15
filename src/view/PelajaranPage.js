@@ -86,6 +86,16 @@ const useStyles = makeStyles((theme) => ({
     spaceButton: {
         backgroundColor: '#0061A8',
         height: 15
+    },
+    bgColor: {
+      backgroundColor: '#2978B5'
+    },
+    textDesc: {
+      fontWeight: 'bold'
+    },
+    fillColor: {
+      backgroundColor: '#2978B5',
+      height: 210
     }
 }));
 
@@ -328,6 +338,7 @@ const PelajaranPage = (props) => {
     }
     
     return(
+        <div className={classes.bgColor}>
         <React.Fragment>
             <Header />
             <div className="side-nav">
@@ -358,9 +369,9 @@ const PelajaranPage = (props) => {
             </div>
             
             <div className="matakuliah-view">
-                    <Typography>{data.Nama}</Typography>
+                    <Typography className={classes.textDesc}>{data.Nama}</Typography>
                     <div className={classes.viewHeader}>
-                        <Typography>{data.Kode}</Typography>
+                        <Typography className={classes.textDesc}>{data.Kode}</Typography>
                         {props.location.state.type === "Elektif" ? (
                         <Button
                             variant="contained"
@@ -375,13 +386,13 @@ const PelajaranPage = (props) => {
                     </div>
 
                     <Divider className={classes.divider} />
-                    <Typography>Deskripsi</Typography>
-                    <Typography>Prasyarat</Typography>
-                    <Typography>Dosen Koordinator</Typography>
+                    <Typography className={classes.textDesc}>Deskripsi</Typography>
+                    <Typography className={classes.textDesc}>Prasyarat</Typography>
+                    <Typography className={classes.textDesc}>Dosen Koordinator</Typography>
                     <Typography>{koordinator.Nip} - {koordinator.NamaGelar}</Typography>
                     
                     {props.location.state.type === "Elektif" ? 
-                      (<Typography>Daftar Mahasiswa yang tertarik mengikuti mata kuliah elektif ini</Typography>)
+                      (<Typography className={classes.textDesc}>Daftar Mahasiswa yang tertarik mengikuti mata kuliah elektif ini</Typography>)
                       : 
                       ""
                     }
@@ -389,7 +400,7 @@ const PelajaranPage = (props) => {
                     <div className={classes.tableElektif}>
                         <TableElektif dataTertarik={dataTertarik} idMataKuliah={parseInt(props.match.params.id)} />
                     </div>) : ("")}
-                    <Typography>Review</Typography>
+                    <Typography className={classes.textDesc}>Review</Typography>
                     
                     
                     {/* <TambahKomentarCard /> */}
@@ -409,8 +420,9 @@ const PelajaranPage = (props) => {
                     <ListKomentar dataKomentar={dataListKomentar} idMataKuliah={parseInt(props.match.params.id)} />
                     </div>
             </div>
-            
+            <div className={classes.fillColor}></div>
         </React.Fragment>
+        </div>
     );
 }
 

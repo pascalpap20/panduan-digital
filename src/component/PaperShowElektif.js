@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    fontWeight: 'bold'
   },
   card: {
     maxWidth:275,

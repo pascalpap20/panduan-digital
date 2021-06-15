@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: theme.spacing(40),
             height: theme.spacing(40),
+        backgroundColor: '#8AB6D6'
         },
     },
     show: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: theme.spacing(61),
             height: theme.spacing(40),
+        backgroundColor: '#8AB6D6'
         },
     },
 
@@ -70,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
     spaceButton: {
         backgroundColor: '#0061A8',
         height: 15
+    },
+    bgColor: {
+        backgroundColor: '#2978B5'
     }
 
 }));
@@ -160,7 +165,7 @@ const MainView = (props) => {
 
 
     return(
-        <div>
+        <div className={classes.bgColor}>
             <Header />
             <div className="side-nav">
                 <div className={classes.root}>

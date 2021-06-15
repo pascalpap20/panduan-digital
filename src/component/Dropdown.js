@@ -34,6 +34,14 @@ const useStyles = makeStyles((theme) => ({
     tableContainer: {
         display: "flex",
         justifyContent: "center"
+    },
+    textMk: {
+        marginLeft: 50,
+        fontWeight: 'bold'
+    },
+    spaceTipe: {
+        backgroundColor: '#2978B5',
+        height: 50
     }
 }));
 
@@ -112,11 +120,12 @@ const Dropdown = () => {
             </div>
             <Divider className={classes.divider} />
             <div className={classes.show}>
-                <Typography>Mayor</Typography>
+                <Typography className={classes.textMk}>Mayor</Typography>
                 <div className={classes.tableContainer}>
                     <Table dataToShow={selectedSubject} type="Mayor" kode={kodeMK} />
                 </div>
-                <Typography>Elektif</Typography>
+                <div className={classes.spaceTipe}></div>
+                <Typography className={classes.textMk}>Elektif</Typography>
                 <div className={classes.tableContainer}>
                     <Table dataToShow={selectedSubject} type="Elektif" kode={kodeMK} />
                 </div>
