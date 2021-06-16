@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     divider: {
         marginTop: 60
     },
+    dividerTipe: {
+        marginTop: 30
+    },
     tableContainer: {
         display: "flex",
         justifyContent: "center"
@@ -125,6 +128,7 @@ const Dropdown = () => {
                     <Table dataToShow={selectedSubject} type="Mayor" kode={kodeMK} />
                 </div>
                 <div className={classes.spaceTipe}></div>
+                <Divider className={classes.dividerTipe} />
                 <Typography className={classes.textMk}>Elektif</Typography>
                 <div className={classes.tableContainer}>
                     <Table dataToShow={selectedSubject} type="Elektif" kode={kodeMK} />

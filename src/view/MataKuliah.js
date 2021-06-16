@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     },
     fillColor: {
         backgroundColor: '#2978B5',
-        height: 270
+        height: 240
     },
 }));
 
@@ -100,7 +100,6 @@ const MataKuliah = (props) => {
                     <Dropdown />
             
             </div>
-            <div className={classes.fillColor}></div>
         </React.Fragment>
         </div>
     );

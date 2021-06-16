@@ -19,6 +19,7 @@ import TextField from '@material-ui/core/TextField';
 import { Paper } from '@material-ui/core';
 import clsx from 'clsx';
 import axios from 'axios';
+import DATADETAIL from '../component/dataDummyDetail';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
       marginTop:20
     },    
     divider: {
-        marginTop: 60
+        marginTop: 30
+    },
+    dividerDesc: {
+      marginTop: 20,
     },
     viewHeader: {
         display: "flex",
@@ -90,12 +94,16 @@ const useStyles = makeStyles((theme) => ({
     bgColor: {
       backgroundColor: '#2978B5'
     },
-    textDesc: {
-      fontWeight: 'bold'
+    textTittle: {
+      fontWeight: 'bold',
+      fontSize: 30
     },
-    fillColor: {
-      backgroundColor: '#2978B5',
-      height: 210
+    textDesc: {
+      fontWeight: 'bold',
+      fontSize: 20
+    },
+    textIsi: {
+      fontSize: 18
     }
 }));
 
@@ -112,6 +120,8 @@ const PelajaranPage = (props) => {
     const [isTertarik, setIsTertarik] = useState(false)
     const [komentarValues, setKomentarValues] = useState("")
     const [dataListKomentar, setDataListKomentar] = useState([])
+
+    const [dataDetail, setDataDetail] = useState([])
 
     useEffect(() => {
         const id = props.match.params.id
@@ -213,14 +223,48 @@ const PelajaranPage = (props) => {
             console.log(error);
           });
     }
+    
+      const getDetail = async()=>{
+        const detailMk = DATADETAIL.filter(item => (item.mkid === parseInt(props.match.params.id)));
+          setDataDetail(detailMk[0]);
+          // const detailMk = dataDetail.filter(item => (item.mkid === parseInt(props.match.params.id)));
+          // const detailsMk = detailMk[0];
+          console.log(dataDetail);
+        
+        //   var config = {
+        //   method: 'get',
+        //   url: `http://localhost:8000/api/repo-detail`,
+        //   headers: { 
+        //     'Content-Type': 'application/json'
+        //   }
+        // };
+        
+        // await axios(config)
+        // .then(function (response) {
+        //   console.log(response.data);
+        //   const detailMk = response.data.filter(item => (item.mkid === parseInt(props.match.params.id)));
+        //   setDataDetail(detailMk[0]);
+        //   // const detailMk = dataDetail.filter(item => (item.mkid === parseInt(props.match.params.id)));
+        //   // const detailsMk = detailMk[0];
+        //   console.log(dataDetail);
+        // })
+        // .catch(function (error) {
+        //   console.log(error);
+        // });
+      }
+        
+     
+    console.log(koordinator);
 
     useEffect(() => {
         getData();
         getDataKomentar();
+        getDetail();
     }, [])
 
     useEffect(() => {
         checkIsTertarikCondition();
+        
     })
 
     const handleSubmit = async (e) => {
@@ -336,6 +380,9 @@ const PelajaranPage = (props) => {
 
         }
     }
+
+    
+
     
     return(
         <div className={classes.bgColor}>
@@ -369,9 +416,9 @@ const PelajaranPage = (props) => {
             </div>
             
             <div className="matakuliah-view">
-                    <Typography className={classes.textDesc}>{data.Nama}</Typography>
+                    <Typography className={classes.textTittle}>{data.Nama}</Typography>
                     <div className={classes.viewHeader}>
-                        <Typography className={classes.textDesc}>{data.Kode}</Typography>
+                        <Typography className={classes.textTittle}>{data.Kode}</Typography>
                         {props.location.state.type === "Elektif" ? (
                         <Button
                             variant="contained"
@@ -387,10 +434,14 @@ const PelajaranPage = (props) => {
 
                     <Divider className={classes.divider} />
                     <Typography className={classes.textDesc}>Deskripsi</Typography>
+                    <Typography className={classes.textIsi}>{dataDetail.description}</Typography>
+                    <Divider className={classes.dividerDesc}></Divider>
                     <Typography className={classes.textDesc}>Prasyarat</Typography>
+                    <Typography className={classes.textIsi}>{dataDetail.pras}</Typography>
+                    <Divider className={classes.dividerDesc}></Divider>
                     <Typography className={classes.textDesc}>Dosen Koordinator</Typography>
-                    <Typography>{koordinator.Nip} - {koordinator.NamaGelar}</Typography>
-                    
+                    <Typography className={classes.textIsi}>{koordinator.Nip} - {koordinator.NamaGelar}</Typography>
+                    <Divider className={classes.dividerDesc}></Divider>
                     {props.location.state.type === "Elektif" ? 
                       (<Typography className={classes.textDesc}>Daftar Mahasiswa yang tertarik mengikuti mata kuliah elektif ini</Typography>)
                       : 
@@ -420,7 +471,6 @@ const PelajaranPage = (props) => {
                     <ListKomentar dataKomentar={dataListKomentar} idMataKuliah={parseInt(props.match.params.id)} />
                     </div>
             </div>
-            <div className={classes.fillColor}></div>
         </React.Fragment>
         </div>
     );

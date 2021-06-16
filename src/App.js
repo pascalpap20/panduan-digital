@@ -9,6 +9,7 @@ import { AuthProvider } from './context/auth'
 import PrivateRoute from './route/PrivateRoutes'
 import PelajaranPage from './view/PelajaranPage'
 
+document.body.style.backgroundColor = "#2978B5"
 function App() {
   const [isLoggedIn, setStatus] = useState(localStorage.getItem("isLogin"))
   useEffect(() => {
@@ -41,5 +42,6 @@ function App() {
       )
   );
 }
+
 
 export default App;
