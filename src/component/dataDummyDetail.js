@@ -210,7 +210,14 @@ const DATADETAIL = [
         id: 39, 
         mkid: 12200, 
         description: "Mata kuliah ini menjelaskan pengantar temu kembali informasi (TKI), dasardasar temu kembali informasi : pemodelan, evaluasi, query, operasi teks dan  multimedia, indexing and searching. Topik dalam temu kembali informasi : relevance feedback, query expansion, text classification, text clustering, summarization, cross-language, question answering, web search, dan semantic web. Setelah mengikuti kuliah ini, mahasiswa diharapkan mampu menjelaskan dan mengembangkan temu kembali informasi, serta menerapkannya untuk membuat sistem aplikasi temu kembali informasi.", 
-        pras: "STK202, KOM207"},
+        pras: "STK202, KOM207"
+    },
+    {
+        id: 40, 
+        mkid: 27266, 
+        description: "-", 
+        pras: "-"
+    },
 ]
 
 export default DATADETAIL;

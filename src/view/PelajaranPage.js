@@ -104,6 +104,9 @@ const useStyles = makeStyles((theme) => ({
     },
     textIsi: {
       fontSize: 18
+    },
+    btnBatal: {
+      backgroundColor: "#ff4c4c"
     }
 }));
 
@@ -121,7 +124,7 @@ const PelajaranPage = (props) => {
     const [komentarValues, setKomentarValues] = useState("")
     const [dataListKomentar, setDataListKomentar] = useState([])
 
-    const [dataDetail, setDataDetail] = useState([])
+    // const [dataDetail, setDataDetail] = useState([])
 
     useEffect(() => {
         const id = props.match.params.id
@@ -224,12 +227,13 @@ const PelajaranPage = (props) => {
           });
     }
     
-      const getDetail = async()=>{
-        const detailMk = DATADETAIL.filter(item => (item.mkid === parseInt(props.match.params.id)));
-          setDataDetail(detailMk[0]);
+      // const getDetail = async()=>{
+          const detailMk = DATADETAIL.filter(item => (item.mkid === parseInt(props.match.params.id)));
+          console.log(detailMk[0])
+          // setDataDetail(detailMk[0]);
           // const detailMk = dataDetail.filter(item => (item.mkid === parseInt(props.match.params.id)));
           // const detailsMk = detailMk[0];
-          console.log(dataDetail);
+          // console.log(dataDetail);
         
         //   var config = {
         //   method: 'get',
@@ -251,7 +255,7 @@ const PelajaranPage = (props) => {
         // .catch(function (error) {
         //   console.log(error);
         // });
-      }
+      // }
         
      
     console.log(koordinator);
@@ -259,7 +263,7 @@ const PelajaranPage = (props) => {
     useEffect(() => {
         getData();
         getDataKomentar();
-        getDetail();
+        // getDetail();
     }, [])
 
     useEffect(() => {
@@ -422,7 +426,7 @@ const PelajaranPage = (props) => {
                         {props.location.state.type === "Elektif" ? (
                         <Button
                             variant="contained"
-                            color="primary"
+                            color={isTertarik ? "secondary" : "primary"}
                             size="small"
                             className={classes.button}
                             startIcon={isTertarik ? <ClearIcon/> : <AddIcon />}
@@ -434,10 +438,10 @@ const PelajaranPage = (props) => {
 
                     <Divider className={classes.divider} />
                     <Typography className={classes.textDesc}>Deskripsi</Typography>
-                    <Typography className={classes.textIsi}>{dataDetail.description}</Typography>
+                    <Typography className={classes.textIsi}>{detailMk[0].description}</Typography>
                     <Divider className={classes.dividerDesc}></Divider>
                     <Typography className={classes.textDesc}>Prasyarat</Typography>
-                    <Typography className={classes.textIsi}>{dataDetail.pras}</Typography>
+                    <Typography className={classes.textIsi}>{detailMk[0].pras}</Typography>
                     <Divider className={classes.dividerDesc}></Divider>
                     <Typography className={classes.textDesc}>Dosen Koordinator</Typography>
                     <Typography className={classes.textIsi}>{koordinator.Nip} - {koordinator.NamaGelar}</Typography>

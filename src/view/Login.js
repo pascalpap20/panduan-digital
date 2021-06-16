@@ -9,7 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Button, Paper, Typography } from '@material-ui/core';
+import { Button, Paper} from '@material-ui/core';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../context/auth'
@@ -155,7 +155,12 @@ export default function Login() {
     // <div className={classes.root}>
     // <div>
     // <Typography className={classes.judul}>PANDUAN DIGITAL IPB</Typography>
-    <div style={{ backgroundImage: `url(${bgLogin})` }}>
+    <div style={{ backgroundImage: `url(${bgLogin})`,
+                  height: "100%",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+    }}>
       <div className={classes.root} noValidate autoComplete="off">
       <div className={classes.kotak}>
             <Paper className={classes.paper}>
