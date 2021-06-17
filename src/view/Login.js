@@ -14,7 +14,8 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../context/auth'
 // import { Typography } from '@material-ui/core';
-import bgLogin from '../img/bgLogin.jpg'
+import bgLogin from '../img/Bgonly.jpg'
+import logo from '../img/logopd1.png'
 
 const useStyles = makeStyles((theme) => ({
   // bgLogin: {
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     height: 260,
     width: 350,
     borderRadius: 15,
-    marginTop: 300,
+    // marginTop: 10,
     // marginTop: 40,
     marginBottom: 100
   },
@@ -156,11 +157,21 @@ export default function Login() {
     // <div>
     // <Typography className={classes.judul}>PANDUAN DIGITAL IPB</Typography>
     <div style={{ backgroundImage: `url(${bgLogin})`,
-                  height: "100%",
+                  // height: "100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
+                  position: "fixed",
+                  minWidth: "100%",
+                  minHeight: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  // justifyContent: "center",
+                  alignItems: "center"
     }}>
+      <img src={logo} alt="Logo" style={{
+        width: 600
+      }}/>
       <div className={classes.root} noValidate autoComplete="off">
       <div className={classes.kotak}>
             <Paper className={classes.paper}>
